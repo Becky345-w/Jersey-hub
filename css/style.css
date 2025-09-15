@@ -1,0 +1,89 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f8f9fa; color: #333; scroll-behavior: smooth; }
+section { padding: 60px 20px; opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+section.visible { opacity: 1; transform: translateY(0); }
+
+/* Header */
+header {
+  display: flex;
+   justify-content: space-between; 
+   align-items: center;
+  padding: 15px 20px;
+   background: #0d1b2a;
+    color: white; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.logo { font-size: 24px; font-weight: bold; color: white; text-decoration: none; }
+.logo span { color: #e63946; }
+.navbar ul { list-style: none; display: flex; }
+.navbar ul li { margin: 0 10px; }
+.navbar ul li a { color: white; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+.navbar ul li a:hover { color: #e63946; }
+.hamburger { font-size: 28px; cursor: pointer; display: none; }
+
+/* Mobile Navbar Animation */
+@media (min-width: 768px) {
+  .navbar {
+    display: none; flex-direction: column;
+    position: absolute; top: 60px; right: 0; background: #0d1b2a;
+    width: 200px; padding: 15px; border-radius: 0 0 8px 8px;
+    transform: translateX(100%); transition: transform 0.3s ease-in-out;
+  }
+  .navbar.active { display: flex; transform: translateX(0); }
+  .hamburger { display: block; }
+  .navbar ul { flex-direction: column; }
+  .navbar ul li { margin: 15px 0; text-align: center; }
+}
+
+/* Hero */
+.hero {
+  height: 90vh; background: url('../img/hero.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+}
+.hero h1 { font-size: 40px; margin-bottom: 20px; animation: fadeInDown 1.5s ease; }
+.hero p { font-size: 18px; margin-bottom: 20px; animation: fadeInUp 1.5s ease; }
+.hero .btn { margin: 10px; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s ease; }
+.primary { background: #e63946; color: white; }
+.ghost { border: 2px solid white; color: white; }
+.hero .btn:hover { transform: scale(1.1); }
+
+/* About */
+.about { background: #fff; text-align: center; }
+.about h1 { font-size: 36px; color: #e63946; margin-bottom: 20px; }
+.about p { max-width: 600px; margin: auto; font-size: 18px; }
+
+/* Carousel Shop Section */
+.shop h1 { color: #e63946; margin-bottom: 20px; text-align: center; }
+.carousel-container { position: relative; width: 90%; margin: 0 auto; overflow: hidden; }
+.carousel-track { display: flex; transition: transform 0.5s ease; }
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; cursor: pointer;
+  padding: 10px; border-radius: 50%; z-index: 2;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+.product { flex: 0 0 250px; margin: 0 10px; border: 1px solid #ddd; border-radius: 8px; background: #fff; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.product img { width: 100%; height: auto; }
+.product h3 { padding: 10px; background: #0d1b2a; color: white; text-align: center; }
+.product:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+
+/* Contact */
+.contact h1 { color: #e63946; margin-bottom: 20px; text-align: center; }
+form { max-width: 400px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
+input, textarea { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+button { background: #e63946; color: white; padding: 10px; border: none; cursor: pointer; border-radius: 5px; transition: 0.3s ease; }
+button:hover { background: #c52834; transform: scale(1.05); }
+
+/* Footer */
+footer { background: #0d1b2a; color: white; text-align: center; padding: 15px; margin-top: 40px; }
+.socials a { margin: 0 5px; color: white; font-size: 18px; transition: color 0.3s ease; }
+.socials a:hover { color: #e63946; }
+
+/* Animations */
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
